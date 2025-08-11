@@ -4,15 +4,10 @@ import pandas as pd
 
 from SmartSlit import SmartSlit, export_report, save_data
 
-
-author = "Yaneeee"
-mail = "yanyi_1995@163.com"
-
 st.set_page_config(page_title="分切排刀辅助工具", page_icon=":material/content_cut:")
 
 st.title("分切排刀辅助工具")
 
-st.markdown(f"> 作者：@{author}，邮箱：{mail}")
 st.write('使用教程请查看左侧边栏')
 
 with open('./help.md', 'r', encoding='utf-8') as f:

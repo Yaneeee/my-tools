@@ -1,0 +1,24 @@
+[server]
+enableStaticServing = true
+
+[[theme.fontFaces]]
+family="google-sans"
+url="app/static/GoogleSansCode-Italic-VariableFont_wght.ttf"
+style="italic"
+[[theme.fontFaces]]
+family="google-sans"
+url="app/static/GoogleSansCode-VariableFont_wght.ttf"
+style="normal"
+[[theme.fontFaces]]
+family="google-sans"
+url="app/static/GoogleSansCode-VariableFont_wght.ttf"
+[[theme.fontFaces]]
+family="DingTalk"
+url="app/static/DingTalkJinBuTi-Regular.ttf"
+[[theme.fontFaces]]
+family="AlibabaPuHui"
+url="app/static/AlibabaPuHuiTi-3-55-Regular.ttf"
+
+[theme]
+font="AlibabaPuHui"
+codeFont="AlibabaPuHui"
