@@ -15,7 +15,7 @@ H = st.sidebar.slider("高(mm)", value=150, min_value=120, max_value=200, step=1
 
 # 装箱高度
 st.sidebar.subheader("装箱高度")
-H_box = st.sidebar.slider("高度(mm)", value=2270*2//3, min_value=H, max_value=2270, step=10)
+H_box = st.sidebar.number_input("高度(mm)", value=1600, min_value=H, max_value=2270, step=10)
 
 # 包材厚度
 st.sidebar.subheader("包材厚度")

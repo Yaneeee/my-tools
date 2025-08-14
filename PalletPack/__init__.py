@@ -14,7 +14,7 @@ def backtrack(
     #     res.append(list(state))
     #     return
     _len = len(state)
-    if 0 <= target - (_len + 2) * thickness <= min_num:
+    if 0 <= target - (_len + 2) * thickness < min_num:
         res.append(list(state))
         return
     # 遍历所有选择
