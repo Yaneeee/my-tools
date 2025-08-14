@@ -4,7 +4,7 @@ import pandas as pd
 
 from SmartSlit import SmartSlit, export_report, save_data
 
-st.set_page_config(page_title="分切排刀辅助工具", page_icon=":material/content_cut:")
+st.set_page_config(page_title="分切排刀辅助工具", page_icon=":material/split_scene_left:")
 
 st.title("分切排刀辅助工具")
 
@@ -18,7 +18,7 @@ col1, col2 = st.columns(2)
 with col1:
     loss_4 = st.number_input("一刀切4颗半成品损耗/mm", value=5, step=5)
 with col2:
-    loss_8 = st.number_input("一刀切8颗半成品损耗/mm", value=10, max_value=25, step=5)
+    loss_8 = st.number_input("一刀切8颗半成品损耗/mm", value=10, step=5)
 
 if loss_4 > loss_8:
     st.error("一刀切4颗半成品损耗不能大于一刀切8颗半成品损耗！")
