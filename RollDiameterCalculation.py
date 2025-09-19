@@ -1,3 +1,5 @@
+import math
+
 import streamlit as st
 from CAL import calculate_diameter, calculate_length
 
@@ -17,7 +19,8 @@ if choice=='卷径计算':
     length = st.number_input('长度(米/M):',step=10)
     if length>0:
         D = calculate_diameter(length,thickness,d0)
-        st.info(f'长度为{length}M的膜卷，卷径约: {D:.1f}cm')
+        w = (1+math.sqrt(2)*2+math.sqrt(3))/math.sqrt(2) * D/2
+        st.info(f'长度为{length}M的膜卷，卷径约: {D:.1f}cm，四颗一层最小托盘尺寸约: {D*2:.1f}x{D*2:.1f}cm, 三颗一层最小托盘尺寸约: {w:.1f}x{w:.1f}cm')
 else:
     # 已知卷径厚度计算长度
     # st.write(choice)

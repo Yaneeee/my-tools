@@ -27,7 +27,7 @@ st.write("装箱高度：", H_box, "mm")
 # 规格数据
 st.subheader("规格数据")
 # 输入数据
-df = pd.DataFrame(columns=["规格/mm","订单数量/R","打包数量/R","差异数量/R"],data=[])
+df = pd.DataFrame(columns=["规格/mm","订单数量/R"],data=[])
 
 input_df = st.data_editor(df,num_rows='dynamic',use_container_width=True)
 
@@ -36,7 +36,7 @@ indeed_df = input_df.copy()
 indeed_df[indeed_df.columns[-1]].fillna(999, inplace=True)
 indeed_df.fillna(0, inplace=True)
 # 转换数据类型
-indeed_df = indeed_df.astype(int)
+indeed_df = indeed_df.astype(int)   
 indeed_df.sort_values(by=['规格/mm'], inplace=True)
 
 if st.checkbox('允许多打包'):
