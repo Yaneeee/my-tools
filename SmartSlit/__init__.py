@@ -38,13 +38,13 @@ def backtrack(
 ):
     """回溯算法：子集和 I"""
     if len(state) <= 4:
-        # 子集长度小于等于4时且和在 [0,loss_4] 内，记录解
+        # 子集长度小于等于4时且和在 [0,loss_8] 内，记录解
         if 0 <= target <= loss_8:
             res.append(list(state))
             return
     elif 4 < len(state) < 9:
         # 子集长度大于4时且和在 [0,loss_8] 内，记录解
-        if loss_4 < target <= loss_8:
+        if loss_4 <= target <= loss_8:
             res.append(list(state))
             return
     else:
