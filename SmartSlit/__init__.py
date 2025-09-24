@@ -1,12 +1,11 @@
-import time
 import os
+import time
 from collections import Counter
 from typing import List, Tuple
 
 import pandas as pd
 from pandas import DataFrame
-
-from pulp import LpProblem, LpVariable, LpMinimize, LpInteger, lpSum, LpStatus, value, GLPK_CMD
+from pulp import LpProblem, LpVariable, LpMinimize, LpInteger, lpSum, LpStatus, value
 
 
 def get_combine(
@@ -40,7 +39,7 @@ def backtrack(
     """回溯算法：子集和 I"""
     if len(state) <= 4:
         # 子集长度小于等于4时且和在 [0,loss_4] 内，记录解
-        if 0 <= target <=loss_4:
+        if 0 <= target <= loss_8:
             res.append(list(state))
             return
     elif 4 < len(state) < 9:

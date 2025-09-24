@@ -83,7 +83,6 @@ def calc_range(indeed_widths: list[int], indeed_nums: list[int], res: pd.DataFra
 
     # 调用求解器
     prob.solve()
-    # prob.writeLP("stacking_pallet_packer.lp")
 
     # 输出结果
     if LpStatus[prob.status] == 'Optimal':
