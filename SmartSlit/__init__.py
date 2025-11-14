@@ -178,7 +178,7 @@ def export_report(count_res, cut_res):
     """
     # 导出报告
     output_time = time.strftime("%Y%m%d%H%M%S", time.localtime())
-    output_file = f'排刀方案_{output_time}.xlsx'
+    output_file = f'OUTPUT/排刀方案_{output_time}.xlsx'
     # 保存结果到excel文件
     with pd.ExcelWriter(output_file) as writer:
         count_res.to_excel(writer, sheet_name="分切统计", index=False)
@@ -195,7 +195,7 @@ def save_data(_indeed_df: DataFrame):
     if _indeed_df.empty:
         return
     output_time = time.strftime("%Y%m%d%H%M%S", time.localtime())
-    output_file = f'需求数据_{output_time}.csv'
+    output_file = f'INPUT/需求数据_{output_time}.csv'
     # 保存结果到csv文件
     _indeed_df.to_csv(output_file, index=False, encoding='utf-8-sig')
     return output_file

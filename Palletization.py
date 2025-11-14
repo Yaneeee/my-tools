@@ -1,5 +1,5 @@
-import streamlit as st
 import pandas as pd
+import streamlit as st
 
 from PalletPack import StackingPalletPacker
 
@@ -29,7 +29,7 @@ st.subheader("规格数据")
 # 输入数据
 df = pd.DataFrame(columns=["规格/mm","订单数量/R"],data=[])
 
-input_df = st.data_editor(df,num_rows='dynamic',use_container_width=True)
+input_df = st.data_editor(df, num_rows='dynamic', width='stretch')
 
 indeed_df = input_df.copy()
 # 处理缺失值
@@ -49,13 +49,11 @@ st.info("注：当无法刚好满足装满规格，请勾选。")
 # 计算
 if st.button("计算",type="primary"):
     calculator = StackingPalletPacker(indeed_df,H_box,H,t)
-    min_pack,combine_arr = calculator.calculate_arr(more)
-    st.write("最小打包数量：",min_pack)
+    # min_pack,combine_arr = calculator.calculate_arr(more)
+    # st.write("最小打包数量：",min_pack)
     result_combine,result_df = calculator.get_result(more)
+    st.write("最小打包堆数：", result_combine['堆数'].sum())
     st.write("打包结果：")
-    st.dataframe(result_df,use_container_width=True)
+    st.dataframe(result_df, width='stretch')
     st.write("打包方案：")
-    st.dataframe(result_combine,use_container_width=True,hide_index=True)
-
-
-
+    st.dataframe(result_combine, width='stretch', hide_index=True)

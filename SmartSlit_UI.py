@@ -1,6 +1,7 @@
 import os
-import streamlit as st
+
 import pandas as pd
+import streamlit as st
 
 from SmartSlit import SmartSlit, export_report, save_data
 
@@ -24,20 +25,28 @@ if loss_4 > loss_8:
     st.error("一刀切4颗半成品损耗不能大于一刀切8颗半成品损耗！")
 
 st.subheader("输入半成品数据：")
+st.write('半成品库存数量可以不填')
 
 semi_info = pd.DataFrame(columns=["半成品规格/mm", "库存数量/R"], data=[])
 
-semi_data = st.data_editor(data=semi_info, num_rows="dynamic", use_container_width=True)
+semi_data = st.data_editor(data=semi_info, num_rows="dynamic", width='stretch')
 
 st.subheader("输入成品需求数据：")
 
 default_df = pd.DataFrame(columns=["成品规格/mm", "需求数量/R", "库存数量/R", "增量限制/R"], data=[])
 indeed_file = st.file_uploader("上传需求数据……", type=["csv"])
 
+default_length = st.number_input('默认收卷米数/M：', value=2000, step=100)
+
 if indeed_file is not None:
     default_df = pd.read_csv(indeed_file, encoding='utf-8-sig')
 
-indeed_data = st.data_editor(data=default_df, num_rows="dynamic", use_container_width=True)
+indeed_data = st.data_editor(data=default_df, num_rows="dynamic", width='stretch')
+
+sum_area = (indeed_data.fillna(0).iloc[:, 0].astype(int) * indeed_data.fillna(0).iloc[:, 1].astype(int)).sum(
+    skipna=True) * default_length / 1000
+if sum_area:
+    st.info(f'订单需求面积：{sum_area}㎡')
 
 indeed_data_csv = save_data(indeed_data)
 if indeed_data_csv is not None:
