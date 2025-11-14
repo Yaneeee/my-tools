@@ -14,9 +14,10 @@ def backtrack(
     #     res.append(list(state))
     #     return
     _len = len(state)
-    if 0 <= target - (_len + 2) * thickness < min_num:
+    # if 0 <= target - (_len + 2) * thickness < min_num:
+    if target - (_len + 2) * thickness >= 0:
         res.append(list(state))
-        return
+        #return
     # 遍历所有选择
     # 剪枝二：从 start 开始遍历，避免生成重复子集
     for i in range(start, len(choices)):
@@ -117,6 +118,9 @@ class StackingPalletPacker:
         self._combines_df = self.get_combines()
         # print(self._combines_df)
 
+    def show_combines(self):
+        return self._combines_df
+
     def get_combines(self):
         # 所有可能的组合
         _all_combines = subset_sum_i(self._indeed_widths, self._target, self._t)
@@ -131,7 +135,7 @@ class StackingPalletPacker:
     def get_result(self, more: int = 0):
         _min_num, _x_values = self.calculate_arr(more)
         if _min_num is None:
-            return None
+            return None, None
         else:
             res_combine = self._combines_df.loc[_x_values.keys(), :]
             res_df = self._indeed_df.copy()
