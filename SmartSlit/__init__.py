@@ -178,7 +178,7 @@ def export_report(count_res, cut_res):
     """
     # 导出报告
     output_time = time.strftime("%Y%m%d%H%M%S", time.localtime())
-    output_file = f'OUTPUT/排刀方案_{output_time}.xlsx'
+    output_file = '排刀方案_{output_time}.xlsx'
     # 保存结果到excel文件
     with pd.ExcelWriter(output_file) as writer:
         count_res.to_excel(writer, sheet_name="分切统计", index=False)
