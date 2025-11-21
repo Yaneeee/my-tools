@@ -195,7 +195,7 @@ def save_data(_indeed_df: DataFrame):
     if _indeed_df.empty:
         return
     output_time = time.strftime("%Y%m%d%H%M%S", time.localtime())
-    output_file = f'INPUT/需求数据_{output_time}.csv'
+    output_file = '需求数据_{output_time}.csv'
     # 保存结果到csv文件
     _indeed_df.to_csv(output_file, index=False, encoding='utf-8-sig')
     return output_file
