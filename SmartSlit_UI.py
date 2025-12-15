@@ -33,7 +33,7 @@ semi_data = st.data_editor(data=semi_info, num_rows="dynamic", width='stretch')
 
 st.subheader("输入成品需求数据：")
 
-default_df = pd.DataFrame(columns=["成品规格/mm", "需求数量/R", "库存数量/R", "增量限制/R"], data=[], dtype=int]
+default_df = pd.DataFrame(columns=["成品规格/mm", "需求数量/R", "库存数量/R", "增量限制/R"], data=[], dtype=int)
 indeed_file = st.file_uploader("上传需求数据……", type=["csv"])
 
 default_length = st.number_input('默认收卷米数/M：', value=2000, step=100)
